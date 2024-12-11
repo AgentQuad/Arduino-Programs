@@ -1,0 +1,46 @@
+
+//variables
+
+int tiltPin=2;
+int tiltState;
+int j;
+int dt=1000;
+
+void setup() {
+    
+
+for(j=7;j<12;j++)
+{
+  pinMode(j,OUTPUT)
+    
+}
+pinMode(tiltPin,INPUT);
+for(j=7;j<12;j++);
+{
+    digitalWrite(j,LOW);
+}
+Serial.begin(9600);
+}
+
+void loop() {
+    
+titlState=digitalRead(tiltPin);
+Serial.println(tiltState);
+if(tiltState==0)
+  
+{
+  for(j=7;j<12;j++)
+    {
+      digitalWrite(j,HIGH);
+      delay(dt);
+    }
+}
+if tiltState==1)
+{
+  for(j=11;j>6;j--)
+  {
+    digitalWrite(j;LOW);
+    delay(dt);
+  }
+}
+  }
