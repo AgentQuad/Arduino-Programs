@@ -1,0 +1,46 @@
+// Variables
+int latchPin = 11;
+int clockPin = 9;  
+int dataPin = 12; 
+
+int value1;    
+int value2;   
+int result;    
+
+void setup() {
+  Serial.begin(9600);  
+  pinMode(latchPin, OUTPUT); 
+  pinMode(clockPin, OUTPUT); 
+  pinMode(dataPin, OUTPUT);  
+}
+
+void loop() {
+  
+  Serial.println("Enter the first number");
+  while (Serial.available() == 0) {
+  }
+  value1 = Serial.parseInt(); 
+  
+  Serial.println("Enter the second number");
+  while (Serial.available() == 0) {
+  }
+  value2 = Serial.parseInt(); 
+  
+  result = value1 + value2;
+
+  if (result > 255) {
+    result = 255;
+  }
+
+  digitalWrite(latchPin, LOW);               
+  shiftOut(dataPin, clockPin, LSBFIRST, result); 
+  digitalWrite(latchPin, HIGH);             
+
+  Serial.print("Result (binary): ");
+  Serial.println(result, BIN); 
+
+  delay(5000);
+}
+
+
+//IT Should maybe work :\
