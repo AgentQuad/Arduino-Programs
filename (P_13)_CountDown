@@ -1,0 +1,90 @@
+#define A 2  // Pin connected to segment A
+#define B 3  // Pin connected to segment B
+#define C 4  // Pin connected to segment C
+#define D 5  // Pin connected to segment D
+#define E 6  // Pin connected to segment E
+#define F 7  // Pin connected to segment F
+#define G 8  // Pin connected to segment G
+
+void setup() {
+  // Set all segment pins as output
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+}
+
+void loop() {
+  displayLetter('A');
+  delay(1000); // Wait 1 second
+  displayLetter('B');
+  delay(1000); // Wait 1 second
+  displayLetter('C');
+  delay(1000); // Wait 1 second
+  displayLetter('D');
+  delay(1000); // Wait 1 second
+  displayLetter('E');
+  delay(1000); // Wait 1 second
+  displayLetter('F');
+  delay(1000); // Wait 1 second
+}
+
+// Function to display a letter on the 7-segment display
+void displayLetter(char letter) {
+  // Turn off all segments first
+  digitalWrite(A, LOW);
+  digitalWrite(B, LOW);
+  digitalWrite(C, LOW);
+  digitalWrite(D, LOW);
+  digitalWrite(E, LOW);
+  digitalWrite(F, LOW);
+  digitalWrite(G, LOW);
+
+  // Turn on segments for the specified letter
+  switch (letter) {
+    case 'A':
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+    case 'B':
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+    case 'C':
+      digitalWrite(A, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      break;
+    case 'D':
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+    case 'E':
+      digitalWrite(A, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+    case 'F':
+      digitalWrite(A, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+  }
+}
