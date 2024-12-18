@@ -1,0 +1,9 @@
+void setup() {
+ pinMode(3, OUTPUT);
+}
+void loop() {
+  digitalWrite(3, HIGH);   // turn the motor on (HIGH is the voltage level)
+  delay(2000);            // wait for 2 seconds
+  digitalWrite(3, LOW);    // turn the motor off by making the voltage LOW
+  delay(3000);            // wait for 3 second
+}
